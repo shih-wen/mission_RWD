@@ -247,6 +247,13 @@ a.link:hover {
   padding: 15px;
   text-align: center;
 }
+/* 信息欄位 */
+.info {
+}
+.infleft {
+}
+.info-right {
+}
 /* ================================= 768px 尺寸 ================================= */
 @media (max-width: 768px) {
   .container {
