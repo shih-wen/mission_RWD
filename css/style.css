@@ -1,48 +1,71 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 body {
-  /* background-color: #fafafa; */
-  background-color: #ddd;
+  background-color: #fff;
   /* GOOGLE字型 */
   font-family: "Noto Sans TC", sans-serif;
-  /* 網頁瀏覽流動字體_(程式碼) */
-  /* font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (2000 - 300))); */
+  font-weight: bold;
 }
-/* 頁面內容 */
-.container {
-  max-width: 1364px;
-  height: auto;
-  margin: 0 auto;
-  /* 左右間隙 */
-  padding-left: 10vw;
-  padding-right: 10vw;
-  position: relative;
-  z-index: 2;
-}
+/* 頁面背景 ================= */
 /* 黃曲線色塊背景 */
-.bgi-01 {
-  position: absolute;
+.bg-yellow {
   width: 851.5px;
   height: 768px;
   background-size: contain;
   background-image: url("../img/bg_yellow.png");
   top: 0px;
   right: 0px;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+/* 左半球背景 */
+.left-ball {
+  top: 650px;
+  position: absolute;
+  width: 130px;
+  height: 360px;
+  background-image: url("../img/ball-1.png");
+  background-position: right;
   background-repeat: no-repeat;
   z-index: -1;
 }
-/* 背景底圖(右黃曲，左藍球、右藍球，左黃球) */
-.container {
-  background: url("../img/ball-1.png") -230px 518px,
-    url("../img/ball-2.png") 1156px 1464px, url("../img/ball-3.png") 50px 2750px;
+/* 右半球背景 */
+.right-ball {
+  top: 1200px;
+  right: 0px;
+  position: absolute;
+  width: 140px;
+  height: 360px;
+  background-image: url("../img/ball-2.png");
+  background-position: left;
   background-repeat: no-repeat;
-  background-color: #fff;
-  border: 1px solid #efefef;
+  z-index: -1;
 }
-img {
-  width: 100%;
-  height: auto;
+/* 左(黃)球背景 */
+.yellow-ball {
+  top: 2150px;
+  left: 50px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url("../img/ball-3.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+/* 頁面外容器 ================= */
+.container {
+  max-width: 1350px;
+  margin: 0 auto;
+  /* 左右間隙 */
+  padding-left: 5%;
+  padding-right: 5%;
+  position: relative;
+  z-index: 1;
 }
 /* 置頂(GoTop) */
 .gotop {
@@ -53,27 +76,32 @@ img {
   right: 48px;
   z-index: 1;
 }
-
-/* 表頭(Logo + 方案費用按鈕) */
+/* 頁首 ================= */
 .header {
   width: 100%;
-  height: 80px;
+  margin: 0 auto;
+}
+.top-nav {
+  width: 100%;
+  height: 88px;
+  display: flex;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-/* 表頭(Logo) */
-.logo-top > img {
-  width: 218px;
+/* 頁首(LOGO) */
+.logo img {
+  max-width: 218px;
   height: auto;
 }
-/* 表頭(方案費用按鈕) */
-.case-cost {
+/* (方案費用按鈕) */
+.button-cost {
   width: 128px;
   display: flex;
   align-items: center;
 }
-.case-cost p {
+.button-cost p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,55 +121,45 @@ a.link:hover {
   background-color: #56c4c5;
 }
 
-/* Banner(左側Slogan + 右側圖) */
+/* Banner內容 ================= */
+/* (左側Slogan) */
 .banner {
   display: flex;
   justify-content: space-between;
-  height: 534px;
-  height: auto;
-  margin-bottom: 18%;
 }
-/* Banner(左側Slogan) */
-.solgan {
-  width: 451px;
+.left-banner {
   display: flex;
   align-items: center;
 }
 .solgan-item-1 {
   font-size: 18px;
-  font-weight: bold;
   color: #56c4c5;
   line-height: 2;
 }
 .solgan-item-2 {
   font-size: 48px;
-  font-weight: bold;
   color: #221e1f;
-  width: 432px;
   line-height: 1.25;
 }
 .solgan-item-3 {
   font-size: 20px;
-  color: #22 1e1f;
+  color: #221e1f;
   line-height: 2;
 }
-/* Banner(右側圖) */
-.banner-img {
-  width: 532px;
-  display: flex;
-  justify-content: flex-end;
-}
-.banner-img > img {
+/* (右側圖像) */
+.right-banner img {
   width: 100%;
   height: auto;
+  margin-left: 5%;
 }
 
-/* 三大平台，我來搞定 */
+/* 三大平台，我來搞定 ================ */
 .social-media {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 48px;
+  color: #221e1f;
 }
 /* Facebook + LINE + IG */
 .media-3 {
@@ -184,7 +202,7 @@ a.link:hover {
   text-align: center;
   line-height: 1.5;
 }
-/* 任何的角色，我都能給 */
+/* 任何的角色，我都能給 ================ */
 .any-actor {
   font-size: 32px;
   font-weight: bold;
@@ -209,13 +227,12 @@ a.link:hover {
   display: flex;
   flex-direction: column;
   width: 24%;
-  background-color: #fff;
 }
 .actor-01 img,
 .actor-02 img,
 .actor-03 img,
 .actor-04 img {
-  max-width: 260px;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
@@ -246,33 +263,37 @@ a.link:hover {
 .actor-shadow {
   border-radius: 0 0 10px 10px;
   box-shadow: 0 0 10px #ccc;
+  background-color: #fff;
+  height: 100%;
 }
-/* 信息欄位(LEFT + RIGHT) */
+/* 快速了解客戶輪廓 建立品牌流量池 ================ */
 .info {
-  display: flex;
   margin-top: 15vh;
+  display: flex;
 }
-/* 信息欄位(LEFT) */
+/* 快速了解客戶輪廓 (LEFT) */
 .info-left {
-  width: 50%;
+  width: 60%;
+  display: flex;
 }
 .info-all {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 .info-1,
 .info-2,
 .info-3,
 .info-4 {
-  width: 40%;
+  width: 42%;
   display: flex;
   flex-direction: column;
-  padding: 30px 20px;
+  padding: 20px 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
   margin-bottom: 20px;
-  margin-right: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #fff;
 }
 .info-bg {
   width: 86px;
@@ -282,8 +303,6 @@ a.link:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 30px;
-  background-color: #fff;
 }
 .info-img-1,
 .info-img-2,
@@ -316,6 +335,12 @@ a.link:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.info-cost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .cost-item-1 {
   font-size: 32px;
@@ -356,75 +381,308 @@ a.r-link:hover {
   border-radius: 25px;
   background-color: #ff5d50;
 }
-/* * {
+/* 好評如潮(教師) ================ */
+.good {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  color: #221e1f;
+}
+.good-teacher {
+  display: flex;
+  justify-content: space-between;
+}
+.teacher-1,
+.teacher-2,
+.teacher-3 {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+/* 教師大頭照 */
+.teacher-img-1,
+.teacher-img-2,
+.teacher-img-3 {
+  width: 71px;
+  height: 71px;
+}
+/* 外框 + 陰影 */
+.good-1,
+.good-2,
+.good-3 {
+  padding: 30px 20px 30px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  margin: 20px 10px;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.teacher-img-1,
+.teacher-img-2,
+.teacher-img-3 {
+  position: absolute;
+  top: -45px;
+  left: 10px;
+  z-index: 2;
+}
+/* 分隔線 */
+.good-line {
+  margin: 30px 0;
+  border: 1px solid #ddd;
+}
+.good-1 h2,
+.good-2 h2,
+.good-3 h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #221e1f;
+  margin-bottom: 10px;
+}
+.good-1 p,
+.good-2 p,
+.good-3 p {
+  font-size: 16px;
+  color: #221e1f;
+  line-height: 1.5;
+}
+/* 5顆星 */
+.star-icon {
+  display: flex;
+  justify-content: space-between;
+}
+.checked {
+  color: #f5ca52;
+}
+/* 輪播 4點 */
+.turn-all {
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+.turn {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+.turn-on {
+  width: 16px;
+  height: 10px;
+  background-color: #ffd153;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* 頁尾 footer ======================= */
+.footer {
+  background-image: url("../img/bg.png");
+  height: 503px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer h2 {
+  font-size: 32px;
+  color: #221e1f;
+  margin-bottom: 10vh;
+}
+/* (方案費用按鈕) */
+.r-link {
+  width: 136px;
+  display: flex;
+  align-items: center;
+}
+.r-link p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 136px;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 16px;
+}
+a.r-link {
+  text-decoration: none;
+  border-radius: 25px;
+  background-color: #56c4c5;
+}
+a.r-link:hover {
+  border-radius: 25px;
+  background-color: #ff5d50;
+}
+/* 頁尾 footer ================ */
+.footer {
+  background-image: url("../img/bg.png");
+  height: 461px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.copyright {
+  font-size: 16px;
+  font-weight: normal;
+  height: 56px;
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 20px 0;
+}
+* {
   outline: 1px solid red;
-} */
+}
 /* ================================= 768px 尺寸 ================================= */
 @media (max-width: 768px) {
   .container {
+    max-width: 100%;
     /* 左右間隙 */
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
-  /* 黃曲線色塊背景 */
-  .bgi-01 {
-    background-image: none;
-  }
-  .bg-sm {
-    width: 100%;
-    height: auto;
-    background-size: contain;
-    background-image: url("../img/bg_yellow_2.png");
-    background-position-x: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-  }
-  /* 表頭(Logo) */
-  .logo-top {
+  .logo img {
     width: 130px;
-    height: auto;
+    height: 24;
   }
-  .header {
-    border-bottom: 2px solid #ffd153;
-  }
-  /* Banner(左側Slogan + 右側圖) */
   .banner {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
   }
-  /* Banner(左側Slogan) */
-  .slogan-item {
-    width: 90vw;
+  .left-banner {
+    width: 96%;
+    display: flex;
+    flex-direction: column;
   }
   .solgan-item-1 {
     font-size: 16px;
-    font-weight: bold;
     color: #56c4c5;
     line-height: 2;
   }
   .solgan-item-2 {
     font-size: 32px;
-    font-weight: bold;
     color: #221e1f;
-    width: 432px;
     line-height: 1.25;
   }
   .solgan-item-3 {
     font-size: 16px;
-    color: #22 1e1f;
+    color: #221e1f;
     line-height: 2;
   }
-  /* Banner(右側圖) */
-  .banner-img {
-    width: 320px;
-    height: auto;
+  .right-banner {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 信息欄位(LEFT + RIGHT) */
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  /* 信息欄位(LEFT) */
+  .info-all {
+    display: flex;
+    justify-content: center;
+  }
+  .info-left {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  /* 信息欄位(RIGHT) */
+  .info-right {
+    width: 100%;
+  }
+}
+
+/* ================================= 375px 尺寸 ================================= */
+@media (max-width: 375px) {
+  /* 黃曲線色塊背景 */
+  .bg-yellow {
+    max-width: 350px;
+    background-size: contain;
+    background-image: url("../img/bg_yellow_2.png");
+    top: 120px;
+    background-position: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  /* 左半球背景 */
+  .left-ball {
+    top: 650px;
+    left: -77px;
+    height: 126px;
+    background-size: contain;
+    background-image: url("../img/ball-1.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+  }
+  /* 右半球背景 */
+  .right-ball {
+    top: 1250px;
+    position: absolute;
+    width: 136px;
+    background-size: contain;
+    background-image: url("../img/ball-2.png");
+    background-position-x: 50px;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  /* 左(黃)球背景 */
+  .yellow-ball {
+    top: 2150px;
+    position: absolute;
+    left: -76px;
+    height: 153px;
+    background-size: contain;
+    background-image: url("../img/ball-3.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  /* 375px尺寸header分隔線 */
+  .header-line {
+    width: 100%;
+    height: 2px;
+    background-color: #ffd153;
+    top: 82px;
+    position: absolute;
+    z-index: 3;
+  }
+  /* 頁面內容 ================= */
+  .container {
+    max-width: 350px;
+    margin: 0 auto;
+    /* 左右間隙 */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  /* 置頂(GoTop) */
+  .gotop {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 520px;
+    right: 40px;
+    z-index: 1;
   }
   /* Facebook + LINE + IG */
   .social-media {
+    font-size: 28px;
     margin-bottom: 32px;
   }
   .media-3 {
@@ -439,10 +697,22 @@ a.r-link:hover {
     align-items: center;
     width: 100%;
   }
+  .Facebook img,
+  .LINE img,
+  .IG img {
+    width: 60px;
+    height: 60px;
+  }
   .Facebook h2,
   .LINE h2,
   .IG h2 {
+    font-size: 18px;
     padding: 14px 0;
+  }
+  .Facebook p,
+  .LINE p,
+  .IG p {
+    font-size: 14px;
   }
   .Facebook,
   .LINE,
@@ -450,10 +720,16 @@ a.r-link:hover {
     margin-bottom: 24px;
   }
   /* 任何的角色，我都能給 */
+  .any-actor {
+    font-size: 28px;
+  }
   .actor {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+  }
+  .actor-slogan {
+    font-size: 18px;
   }
   .actor-01,
   .actor-02,
@@ -463,6 +739,12 @@ a.r-link:hover {
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
+  }
+  .actor-01 p,
+  .actor-02 p,
+  .actor-03 p,
+  .actor-04 p {
+    font-size: 16px;
   }
   .actor-shadow {
     width: 260px;
@@ -487,15 +769,25 @@ a.r-link:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
     margin-bottom: 20px;
-    margin-right: 30px;
+    margin-right: 0px;
   }
-  /* 信息欄位(LEFT + RIGHT) */
+  /* 快速了解客戶輪廓 建立品牌流量池 */
   .info {
     display: flex;
     flex-direction: column-reverse;
     margin-top: 15vh;
   }
-  /* 信息欄位(RIGHT) */
+  .info-all {
+    display: flex;
+    justify-content: center;
+  }
+  .info-1,
+  .info-2,
+  .info-3,
+  .info-4 {
+    width: 250px;
+  }
+  /* 快速了解客戶輪廓 (RIGHT) */
   .info-right {
     display: flex;
     align-items: center;
@@ -518,5 +810,31 @@ a.r-link:hover {
   .cost-item-3 {
     display: flex;
     justify-content: center;
+  }
+  /* 好評如潮(教師) */
+  .teacher-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .good-1 {
+    margin-right: 0px;
+  }
+  /* 隱藏 教師2 教師3 */
+  .teacher-2 {
+    display: none;
+  }
+  .teacher-3 {
+    display: none;
+  }
+
+  .footer {
+    background-image: url("../img/bg_1.png");
+    height: 461px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .footer h2 {
+    font-size: 24px;
   }
 }
